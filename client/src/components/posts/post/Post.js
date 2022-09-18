@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import moment from 'moment';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId }) => {
   return (
     <Card sx={{mt: '10px'}}>
       <CardMedia component="img" image={post.selectedFile} title={post.title} />
@@ -14,14 +14,15 @@ const Post = ({ post }) => {
     <div>
       <Button
         size="small"
-        onClick={() => {}}
+        onClick={() => setCurrentId(post._id)}
       >
-        <MoreVertIcon />
+        <ModeEditIcon />
       </Button>
     </div>
     <div>
       <Typography variant="body2" color="textSecondary">{post.tags.map((tag) => `#${tag} `)}</Typography>
     </div>
+    <Typography variant="h5" gutterBottom>{post.title}</Typography>
     <CardContent>
       <Typography variant="h5" gutterBottom>{post.message}</Typography>
     </CardContent>
